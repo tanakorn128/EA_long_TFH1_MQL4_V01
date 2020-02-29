@@ -1,7 +1,7 @@
 //ULTRON H1//
 
 #define MAGICMA  20131111
-
+#property version   "1.00"
 input double lots =0.01;
 int hour1 = 6;
 int hour2 = 21;
@@ -20,7 +20,7 @@ double TakeProfit;
 double StopLoss;
 double TakeProfit1;
 double StopLoss1;
-long login=AccountInfoInteger(ACCOUNT_LOGIN);
+
 void CheckForSell()
   {
    
@@ -41,9 +41,7 @@ void CheckForBuy()
  
 void OnTick()
   {
-  ENUM_ACCOUNT_TRADE_MODE account_type=(ENUM_ACCOUNT_TRADE_MODE)AccountInfoInteger(ACCOUNT_TRADE_MODE);
-   if(account_type == ACCOUNT_TRADE_MODE_DEMO)
-   {
+   
    ma1 = iMA(NULL,60,9,0,MODE_LWMA,PRICE_OPEN,0);
    ma2 = iMA(NULL,60,9,0,MODE_LWMA,PRICE_CLOSE,0);
    ma3 = iMA(NULL,60,50,0,MODE_SMA,PRICE_CLOSE,0);
@@ -52,7 +50,6 @@ void OnTick()
    ma2ma1 = ma2-ma1;
    ma3ma4 = ma3-ma4;
    ma4ma3 = ma4-ma3;
-   }
    
    int CountSymbolPositions=0;
  
